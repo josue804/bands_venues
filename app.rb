@@ -30,7 +30,6 @@ post('/bands/new') do
   else
     erb(:band_new)
   end
-
 end
 
 get('/venues/new') do
