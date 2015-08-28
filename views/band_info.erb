@@ -1,0 +1,25 @@
+<h1><%= @band.name %></h1>
+
+<h4>Style: <%= @band.style %></h4>
+<h4>Lead: <%= @band.lead %></h4>
+<hr>
+<h2>Performed At</h2>
+<% if @band_venues.any? %>
+  <% @band_venues.each do |venue| %>
+    <a href="/venues/<%= venue.id %>"<%= venue.name %></a>
+  <% end %>
+<% else %>
+  <h4>This band has not played at any venues</h4>
+<% end %>
+<h3>Add a Venue</h3>
+<form action="/bands/<%= @band.id %>" method="post">
+  <select name="venue" class="form-control">
+    <% @venues.each do |venue| %>
+      <option name="venue" value="<%= venue.id %>"><%= venue.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <button type="submit" class="btn btn-primary btn-md">Add Venue</button>
+</form>
+
+</select>

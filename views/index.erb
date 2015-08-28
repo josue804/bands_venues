@@ -12,7 +12,7 @@
         </tr>
         <% @bands.each do |band| %>
         <tr>
-          <td><%= band.name %></td>
+          <td><a href="/bands/<%= band.id %>"><%= band.name %></a></td>
           <td><%= band.style %></td>
           <td><%= band.lead %></td>
         </tr>
@@ -24,5 +24,17 @@
   </div>
   <div class="col-sm-2">
     <h1>Venues</h1>
+    <% if !@venues.any? %>
+    <h3>There are no venues, yet!</h3>
+    <% else %>
+      <ul>
+        <% @venues.each do |venue| %>
+          <li><%= venue.name %></li>
+        <% end %>
+      </ul>
+    </table>
+    <% end %>
+
+    <a href="/venues/new" class="btn btn-default btn-md">Add a Venue</a>
   </div>
 </div>
