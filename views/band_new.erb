@@ -1,20 +1,26 @@
 <h1>Add a Band</h1>
 
-<form action="/" method="post">
+<% if @band %>
+  <% @band.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% end %>
+<% end %>
+
+<form action="/bands/new" method="post">
   <div class="form-group">
     <label for="name">Band Name</label>
-    <input type="text" name="name" placeholder="e.g. Codeine Infused Coders">
+    <input type="text" class="form-control" name="name" placeholder="e.g. Codeine Infused Coders">
   </div>
 
   <div class="form-group">
     <label for="style">Band Style</label>
-    <input type="text" name="style" placeholder="e.g. Classical Electronic">
+    <input type="text" class="form-control" name="style" placeholder="e.g. Classical Electronic">
   </div>
 
   <div class="form-group">
     <label for="lead">Lead</label>
-    <input type="text" name="lead" placeholder="e.g. Bjarne Stroustrup">
+    <input type="text" class="form-control" name="lead" placeholder="e.g. Bjarne Stroustrup">
   </div>
 
-  <button type="submit" class="btn btn-success btn-md">Add</button>
+  <button type="submit" class="btn btn-success btn-lg">Add</button>
 </form>

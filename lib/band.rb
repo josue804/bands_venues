@@ -4,6 +4,10 @@ class Band < ActiveRecord::Base
 
   before_save(:capitalize_band_properties)
 
+  validates(:name, :presence => true)
+  validates(:style, :presence => true)
+  validates(:lead, :presence => true)
+
   private
 
   define_method(:capitalize_band_properties) do

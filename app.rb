@@ -18,3 +18,15 @@ end
 get('/bands/new') do
   erb(:band_new)
 end
+
+post('/bands/new') do
+  name = params['name']
+  style = params['style']
+  lead = params['lead']
+  @band = Band.create({:name => name, :style => style, :lead => lead})
+  if @band.valid?
+    redirect("/")
+  else
+    erb(:band_new)
+  end
+end
