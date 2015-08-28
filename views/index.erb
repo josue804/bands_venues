@@ -9,12 +9,16 @@
           <th>Name</th>
           <th>Style</th>
           <th>Lead</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
         <% @bands.each do |band| %>
         <tr>
           <td><a href="/bands/<%= band.id %>"><%= band.name %></a></td>
           <td><%= band.style %></td>
           <td><%= band.lead %></td>
+          <td><a href="/bands/<%= band.id %>/edit"><span class="glyphicon glyphicon-pencil"></span></a></td>
+          <td><a href="/bands/<%= band.id %>/delete"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         <% end %>
       </table>

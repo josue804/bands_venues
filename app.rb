@@ -62,3 +62,20 @@ post('/bands/:id') do
   venue.bands.push(band)
   redirect("/bands/#{band.id}")
 end
+
+get('/bands/:id/delete') do
+  band = Band.find(params['id'].to_i)
+  band.destroy
+  redirect("/")
+end
+
+get('/bands/:id/edit') do
+  @band = Band.find(params['id'].to_i)
+  erb(:band_edit)
+end
+
+patch('/bands/:id') do
+  band = Band.find(params['id'].to_i)
+  band.update(:name => params['name'], :style => params['style'], :lead => params['lead'])
+  redirect("/bands/#{band.id}")
+end

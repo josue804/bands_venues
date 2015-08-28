@@ -5,9 +5,11 @@
 <hr>
 <h2>Performed At</h2>
 <% if @band_venues.any? %>
-  <% @band_venues.each do |venue| %>
-    <a href="/venues/<%= venue.id %>"<%= venue.name %></a>
-  <% end %>
+  <ul class="list-unstyled">
+    <% @band_venues.each do |venue| %>
+      <li><%= venue.name %></li>
+    <% end %>
+  </ul>
 <% else %>
   <h4>This band has not played at any venues</h4>
 <% end %>
